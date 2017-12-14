@@ -1,0 +1,20 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "MicroService-Core",
+	"classinstvars" : [
+		"current"
+	],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"client",
+		"process",
+		"host",
+		"username",
+		"password",
+		"bindingKey"
+	],
+	"name" : "MSQueueDispatcher",
+	"type" : "normal"
+}
