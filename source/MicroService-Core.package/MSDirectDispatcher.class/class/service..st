@@ -1,3 +1,3 @@
 instance creation
-fromService: anObject
+service: anObject
 	^ self new service: anObject.
