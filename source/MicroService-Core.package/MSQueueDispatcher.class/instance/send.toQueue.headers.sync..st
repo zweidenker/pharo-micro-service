@@ -1,6 +1,7 @@
 accessing
 send: json toQueue: queueName headers: aDictionary sync: aBoolean
 	| c message msg correlationId returnQueue |
+	self client isConnected ifFalse: [ self client open ].
 	c := self client.
 	message := c newSendFrameTo: queueName.
 	message
