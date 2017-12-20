@@ -31,7 +31,7 @@ send: json toQueue: queueName headers: aDictionary sync: aBoolean
 			(self materialize: msg body) ]
 		ifFalse: [
 			c close.
-			MMFutureResult new
+			MSFutureResult new
 				service: self; 
 				queueName: returnQueue;
 				correlationId: correlationId ]
