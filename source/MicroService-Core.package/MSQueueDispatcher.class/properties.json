@@ -9,11 +9,9 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"client",
-		"process",
 		"host",
 		"username",
 		"password",
-		"bindingKey",
 		"virtualHost"
 	],
 	"name" : "MSQueueDispatcher",
