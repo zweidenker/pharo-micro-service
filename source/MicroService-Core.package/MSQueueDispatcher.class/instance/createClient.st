@@ -2,6 +2,7 @@ accessing
 createClient
 	^ StampClient new
 		host: self host;
-	 	login: username;
-	 	passcode: password;
-		yourself
+		virtualHost: self virtualHost;
+		timeout: 10;
+		login: username;
+		passcode: password.

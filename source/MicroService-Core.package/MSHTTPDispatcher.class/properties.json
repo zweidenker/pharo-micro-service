@@ -2,20 +2,13 @@
 	"commentStamp" : "",
 	"super" : "MSDispatcher",
 	"category" : "MicroService-Core",
-	"classinstvars" : [
-		"current"
-	],
+	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
 		"client",
-		"process",
-		"host",
-		"username",
-		"password",
-		"bindingKey",
-		"virtualHost"
+		"baseUrl"
 	],
-	"name" : "MSQueueDispatcher",
+	"name" : "MSHTTPDispatcher",
 	"type" : "normal"
 }
