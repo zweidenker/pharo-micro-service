@@ -10,7 +10,7 @@ runLoop
 				request := self materializeRequestFrom: message.
 				response := self handleRequest: request.
 				self 
-					send: (self serialize: response)
+					sendResponse: response
 					to: (self responseQueueFor: message) ] timeToRun.
 			MSUtils logDebug: 'time = ', time asString ]
 	

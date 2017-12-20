@@ -1,5 +1,5 @@
 message interception
-send: json to: queue
+sendJSON: json to: queue
 	| message |
 	message := self client newSendFrameTo: queue.
 	message 

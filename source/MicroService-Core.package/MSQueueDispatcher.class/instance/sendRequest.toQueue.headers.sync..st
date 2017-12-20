@@ -1,12 +1,12 @@
 accessing
-send: json toQueue: queueName headers: aDictionary sync: aBoolean
+sendRequest: request toQueue: queueName headers: aDictionary sync: aBoolean
 	| c message msg correlationId returnQueue |
 	self client isConnected ifFalse: [ self client open ].
 	c := self client.
 	message := c newSendFrameTo: queueName.
 	message
 		contentType: 'application/json; charset=utf-8';
-		body: json.
+		body: (self serialize: request).
 		
 	aDictionary keysAndValuesDo: [ :key :value |
 		 message headerAt: key put: value ].
@@ -28,7 +28,7 @@ send: json toQueue: queueName headers: aDictionary sync: aBoolean
 		ifTrue: [ 
 			msg := c readMessage.
 			c close.
-			(self materialize: msg body) ]
+			(self materializeResponseFrom: msg) ]
 		ifFalse: [
 			c close.
 			MSFutureResult new
