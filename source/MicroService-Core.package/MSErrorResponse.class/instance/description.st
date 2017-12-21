@@ -1,3 +1,3 @@
 accessing
 description
-	^ error description
+	^ description

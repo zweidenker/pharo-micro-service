@@ -6,7 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"error"
+		"errorClassName",
+		"description"
 	],
 	"name" : "MSErrorResponse",
 	"type" : "normal"

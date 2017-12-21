@@ -1,3 +1,3 @@
 accessing
 errorClassName
-	^ error class name
+	^ errorClassName

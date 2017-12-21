@@ -16,7 +16,8 @@ runLoop
 							at: #ExceptionReporter
 							ifPresent: [ :reporter | reporter handleException: error ].
 				 		response := MSErrorResponse new 
-							error: error ].
+							errorClassName: error class name;
+							description: error description ].
 				self 
 					sendResponse: response
 					to: (self responseQueueFor: message) ] timeToRun.
