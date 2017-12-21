@@ -7,15 +7,17 @@ runLoop
 		runWith: [ :message | | time request response |
 			[ MSUtils logInfo: 'got request: ', message asString.
 			time := [ 
-				request := self materializeRequestFrom: message.
-				response := self handleRequest: request.
+				[  request := self materializeRequestFrom: message.
+					response := self handleRequest: request ]
+					on: Error
+					do: [ :error | 
+						MSUtils logError: error.
+						Smalltalk  
+							at: #ExceptionReporter
+							ifPresent: [ :reporter | reporter handleException: error ].
+				 		response := MSErrorResponse new 
+							error: error ].
 				self 
 					sendResponse: response
 					to: (self responseQueueFor: message) ] timeToRun.
-			MSUtils logDebug: 'time = ', time asString.]
-			on: Error
-			do: [ :error | 
-				MSUtils logError: error.
-				Smalltalk  
-					at: #ExceptionReporter
-					ifPresent: [ :reporter | reporter handleException: error ] ] ]
+			MSUtils logDebug: 'time = ', time asString ] ]
