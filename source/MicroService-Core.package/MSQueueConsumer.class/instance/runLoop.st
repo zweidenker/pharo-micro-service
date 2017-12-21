@@ -5,7 +5,7 @@ runLoop
 		open; 
 		subscribeTo: bindingKey;
 		runWith: [ :message | | time request response |
-			[ MSUtils logInfo: 'got request: ', message asString.
+			MSUtils logInfo: 'got request: ', message asString.
 			time := [ 
 				[  request := self materializeRequestFrom: message.
 					response := self handleRequest: request ]
@@ -20,4 +20,4 @@ runLoop
 				self 
 					sendResponse: response
 					to: (self responseQueueFor: message) ] timeToRun.
-			MSUtils logDebug: 'time = ', time asString ] ]
+			MSUtils logDebug: 'time = ', time asString ]

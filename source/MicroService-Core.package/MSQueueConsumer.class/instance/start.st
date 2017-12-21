@@ -2,7 +2,9 @@ accessing
 start
 	self ensureQueueIsPresent.
 	process := [ 
-		[ self runLoop ]
+		[ 
+			MSUtils logInfo: 'Starting run loop'.
+			self runLoop ]
 		on: Error 
 		do: [ :error |
 			MSUtils logError: error.
