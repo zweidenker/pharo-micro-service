@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "MSResponse",
+	"category" : "MicroService-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"object"
+	],
+	"name" : "MSGenericResponse",
+	"type" : "normal"
+}
