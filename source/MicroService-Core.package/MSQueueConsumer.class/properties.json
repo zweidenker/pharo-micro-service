@@ -7,7 +7,6 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"process",
-		"bindingKey",
 		"rpcMode",
 		"service"
 	],

@@ -12,7 +12,8 @@
 		"host",
 		"username",
 		"password",
-		"virtualHost"
+		"virtualHost",
+		"bindingKey"
 	],
 	"name" : "MSQueueDispatcher",
 	"type" : "normal"

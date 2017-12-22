@@ -2,6 +2,6 @@ accessing
 request: aRequest
 	^ self 
 		sendRequest: aRequest
-		toQueue: '/topic/', aRequest class routingKey
+		toQueue: bindingKey
 		headers: { #requestClass -> aRequest class name } asDictionary
 		sync: true
