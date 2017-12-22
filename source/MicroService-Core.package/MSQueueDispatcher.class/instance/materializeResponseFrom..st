@@ -1,5 +1,6 @@
 as yet unclassified
 materializeResponseFrom: aMessage
-	^ NeoJSONReader 
-		fromString: aMessage body
+	^ self 
+		materialize: aMessage body 
 		as: (aMessage headerAt: 'responseClass') asClass
+	
