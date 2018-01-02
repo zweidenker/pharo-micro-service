@@ -7,5 +7,5 @@ request: aRequest
 		headers: { #requestClass -> aRequest class name } asDictionary
 		sync: true.
 	response isError ifTrue: [ 
-		Error signal: response printString ].
+		MSGenericError signal: response printString ].
 	^ response 
