@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "DBBrokerError",
+	"category" : "MicroService-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "MSMissingResponse",
+	"type" : "normal"
+}
