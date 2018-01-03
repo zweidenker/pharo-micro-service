@@ -1,5 +1,5 @@
 accessing
-request: aRequest
+sendRequest: aRequest
 	| response |
 	aRequest setupHTTPClient: self.
 	response := self client execute.

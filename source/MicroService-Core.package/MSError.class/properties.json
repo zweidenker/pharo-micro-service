@@ -1,11 +1,13 @@
 {
 	"commentStamp" : "",
 	"super" : "Error",
-	"category" : "MicroService-Core-Exceptions",
+	"category" : "MicroService-Core",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [ ],
-	"name" : "MSCommandNotFound",
+	"instvars" : [
+		"description"
+	],
+	"name" : "MSError",
 	"type" : "normal"
 }

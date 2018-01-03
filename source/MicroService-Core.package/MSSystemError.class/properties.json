@@ -1,14 +1,14 @@
 {
 	"commentStamp" : "",
-	"super" : "MSResponse",
+	"super" : "Object",
 	"category" : "MicroService-Core",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"errorClassName",
-		"description"
+		"className",
+		"messageText"
 	],
-	"name" : "MSErrorResponse",
+	"name" : "MSSystemError",
 	"type" : "normal"
 }

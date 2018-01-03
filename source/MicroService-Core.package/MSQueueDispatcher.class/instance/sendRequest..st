@@ -1,5 +1,5 @@
 accessing
-request: aRequest
+sendRequest: aRequest
 	| response |
 	response := self 
 		sendRequest: aRequest
@@ -7,5 +7,5 @@ request: aRequest
 		headers: { #requestClass -> aRequest class name } asDictionary
 		sync: true.
 	response isError ifTrue: [ 
-		MSGenericError signal: response printString ].
+		response signal ].
 	^ response 

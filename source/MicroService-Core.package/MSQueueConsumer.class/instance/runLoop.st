@@ -15,7 +15,7 @@ runLoop
 						Smalltalk  
 							at: #ExceptionReporter
 							ifPresent: [ :reporter | reporter handleException: error ].
-				 		response := MSErrorResponse new 
+				 		response := MSError new 
 							errorClassName: error class name;
 							description: error description ].
 				self 
