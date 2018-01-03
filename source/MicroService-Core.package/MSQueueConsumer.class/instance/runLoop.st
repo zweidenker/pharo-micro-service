@@ -11,13 +11,16 @@ runLoop
 					response := self handleRequest: request ]
 					on: Error
 					do: [ :error | 
-						MSUtils logError: error.
-						Smalltalk  
-							at: #ExceptionReporter
-							ifPresent: [ :reporter | reporter handleException: error ].
-				 		response := MSError new 
-							errorClassName: error class name;
-							description: error description ].
+						response := (error isKindOf: MSError)
+							ifTrue: [ error ]
+							ifFalse: [  
+								MSUtils logError: error.
+								Smalltalk  
+									at: #ExceptionReporter
+									ifPresent: [ :reporter | reporter handleException: error ].
+				 				MSError new 
+									errorClassName: error class name;
+									description: error description ]].
 				self 
 					sendResponse: response
 					to: (self responseQueueFor: message) ] timeToRun.
