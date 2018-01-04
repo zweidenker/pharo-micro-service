@@ -1,3 +1,3 @@
 accessing
-sendRequest: aMSRequest
+dispatchRequest: aMSRequest
 	^ aMSRequest directCall: service
