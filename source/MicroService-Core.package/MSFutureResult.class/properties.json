@@ -8,7 +8,9 @@
 	"instvars" : [
 		"queueName",
 		"correlationId",
-		"service"
+		"value",
+		"state",
+		"successHandler"
 	],
 	"name" : "MSFutureResult",
 	"type" : "normal"
