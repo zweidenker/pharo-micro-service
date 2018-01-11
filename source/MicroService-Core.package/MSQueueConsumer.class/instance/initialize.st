@@ -1,4 +1,5 @@
 initialize
 initialize
 	super initialize.
-	rpcMode := false
+	rpcMode := false.
+	debugMode := false

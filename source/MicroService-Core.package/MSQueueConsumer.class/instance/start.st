@@ -8,6 +8,7 @@ start
 		on: Error 
 		do: [ :error |
 			MSUtils logError: error.
+			debugMode ifTrue: [ error pass ].
 			Smalltalk 
 				at: #ExceptionReporter
 				ifPresent: [ :reporter | reporter handleException: error ] ] ] fork
