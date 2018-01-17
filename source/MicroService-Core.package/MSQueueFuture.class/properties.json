@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "MSFutureResponse",
+	"category" : "MicroService-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"queueName",
+		"correlationId",
+		"process"
+	],
+	"name" : "MSQueueFuture",
+	"type" : "normal"
+}

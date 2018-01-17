@@ -1,5 +1,5 @@
 accessing
-dispatchRequest: aRequest
+dispatchRequest: aRequest sync: aBoolean
 	| response |
 	aRequest setupHTTPClient: self.
 	response := self client execute.

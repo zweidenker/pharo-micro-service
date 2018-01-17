@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "MSHandler",
+	"category" : "MicroService-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"sender",
+		"receiver"
+	],
+	"name" : "MSQueueHandler",
+	"type" : "normal"
+}

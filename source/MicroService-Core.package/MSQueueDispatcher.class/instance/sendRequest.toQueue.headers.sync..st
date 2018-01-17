@@ -31,6 +31,6 @@ sendRequest: request toQueue: queueName headers: aDictionary sync: aBoolean
 			(self materializeResponseFrom: msg) ]
 		ifFalse: [
 			c close.
-			MSFutureResult new
+			MSQueueFuture new
 				queueName: returnQueue;
 				correlationId: correlationId ]

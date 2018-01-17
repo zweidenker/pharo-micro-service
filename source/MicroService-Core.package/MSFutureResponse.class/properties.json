@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "MSResponse",
+	"category" : "MicroService-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"value",
+		"state",
+		"successHandler"
+	],
+	"name" : "MSFutureResponse",
+	"type" : "normal"
+}

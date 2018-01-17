@@ -2,4 +2,5 @@ accessing
 resolve: anObject 
 	value := anObject.
 	state := #resolved.
-	successHandler value: anObject 
+	successHandler do: [ :each |
+		each value: anObject ]

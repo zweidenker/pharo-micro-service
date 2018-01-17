@@ -1,17 +1,13 @@
 {
 	"commentStamp" : "",
-	"super" : "Object",
+	"super" : "MSHandler",
 	"category" : "MicroService-Core",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"queueName",
-		"correlationId",
-		"value",
-		"state",
-		"successHandler"
+		"delegate"
 	],
-	"name" : "MSFutureResult",
+	"name" : "MSDirectHandler",
 	"type" : "normal"
 }
