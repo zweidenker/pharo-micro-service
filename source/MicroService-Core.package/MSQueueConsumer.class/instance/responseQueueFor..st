@@ -1,6 +1,7 @@
 accessing
 responseQueueFor: message
-	^ rpcMode 
-		ifTrue: [ message replyTo ]
-		ifFalse: [ (message headerAt: 'response-queue') ]
+	^ message 
+		headerAt: #'reply-to'
+		ifAbsent: [  
+			(message headerAt: 'response-queue') ]
 	

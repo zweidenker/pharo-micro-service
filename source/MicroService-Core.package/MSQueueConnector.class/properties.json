@@ -1,0 +1,20 @@
+{
+	"commentStamp" : "",
+	"super" : "MSDispatcher",
+	"category" : "MicroService-Core",
+	"classinstvars" : [
+		"current"
+	],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"client",
+		"host",
+		"username",
+		"password",
+		"virtualHost",
+		"bindingKey"
+	],
+	"name" : "MSQueueConnector",
+	"type" : "normal"
+}

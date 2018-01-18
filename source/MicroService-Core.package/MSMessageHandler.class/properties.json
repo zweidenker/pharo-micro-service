@@ -1,16 +1,14 @@
 {
 	"commentStamp" : "",
-	"super" : "MSQueueConnector",
+	"super" : "Object",
 	"category" : "MicroService-Core",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"process",
-		"service",
-		"debugMode",
-		"messageHandler"
+		"queue",
+		"delegate"
 	],
-	"name" : "MSQueueConsumer",
+	"name" : "MSMessageHandler",
 	"type" : "normal"
 }
