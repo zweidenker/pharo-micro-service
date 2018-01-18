@@ -1,7 +1,6 @@
 accessing
 handlerSendingTo: sendingQueue receivingFrom: receivingQueue
-	| handler |
-	handler := MSQueueHandler new
+	^ MSQueueHandler new
 		sender: (MSQueueDispatcher new
 			 host: hostname;
           username: username password: password;
@@ -11,5 +10,5 @@ handlerSendingTo: sendingQueue receivingFrom: receivingQueue
    			username: username password: password;
    			bindingKey: receivingQueue;
 			beResponseHandler;
-			start).
-	^handler
+			start);
+		yourself
