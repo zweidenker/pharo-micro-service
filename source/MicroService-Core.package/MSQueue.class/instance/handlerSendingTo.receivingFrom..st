@@ -4,7 +4,7 @@ handlerSendingTo: sendingQueue receivingFrom: receivingQueue
 		sender: (MSQueueDispatcher new
 			 host: hostname;
           username: username password: password;
-          bindingKey: sendingQueue );
+          bindingKey: sendingQueue )
 		receiver: (MSQueueConsumer new
    			host: hostname;
    			username: username password: password;

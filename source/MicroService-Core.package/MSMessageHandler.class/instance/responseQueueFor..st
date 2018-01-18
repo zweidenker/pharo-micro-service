@@ -3,5 +3,5 @@ responseQueueFor: message
 	^ message 
 		headerAt: #'reply-to'
 		ifAbsent: [  
-			(message headerAt: 'response-queue') ]
+			(message headerAt: 'reply-queue') ]
 	

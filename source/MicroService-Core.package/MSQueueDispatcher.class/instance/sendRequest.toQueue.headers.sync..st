@@ -1,6 +1,6 @@
 accessing
 sendRequest: request toQueue: queueName headers: aDictionary sync: aBoolean
-	| c message msg correlationId returnQueue |
+	| c message msg correlationId  |
 	self client isConnected ifFalse: [ self client open ].
 	c := self client.
 	message := c newSendFrameTo: queueName.
@@ -12,15 +12,11 @@ sendRequest: request toQueue: queueName headers: aDictionary sync: aBoolean
 		 message headerAt: key put: value ].
 
 	aBoolean 
-		ifTrue: [ 
-			returnQueue := '/temp-queue/', 100000 atRandom asString.
-			message replyTo: returnQueue ]
+		ifTrue: [ message replyTo: '/temp-queue/', 100000 atRandom asString ]
 		ifFalse: [
-			correlationId := self createCorrelationId. 
-			returnQueue := '/queue/', 100000 atRandom asString.
 			message 
-				headerAt: 'correlation-id' put: correlationId;
-				headerAt: 'return-queue' put: returnQueue ].
+				headerAt: 'correlation-id' put: self createCorrelationId;
+				headerAt: 'reply-queue' put: self replyQueue ].
 
 	c write: message.
 	
@@ -32,5 +28,5 @@ sendRequest: request toQueue: queueName headers: aDictionary sync: aBoolean
 		ifFalse: [
 			c close.
 			MSQueueFuture new
-				queueName: returnQueue;
+				queueName: replyQueue;
 				correlationId: correlationId ]
