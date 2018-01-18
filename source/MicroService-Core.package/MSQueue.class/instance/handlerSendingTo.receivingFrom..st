@@ -11,4 +11,5 @@ handlerSendingTo: sendingQueue receivingFrom: receivingQueue
    			username: username password: password;
    			bindingKey: receivingQueue;
 			beResponseHandler;
-			start)
+			start).
+	^handler

@@ -2,4 +2,5 @@ accessing
 newConsumer
 	^ MSQueueConsumer new
    			host: hostname;
-   			username: username password: password
+   			username: username password: password;
+			yourself
