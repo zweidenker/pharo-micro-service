@@ -11,4 +11,4 @@ start
 			debugMode ifTrue: [ error pass ].
 			Smalltalk 
 				at: #ExceptionReporter
-				ifPresent: [ :reporter | reporter handleException: error ] ] ] fork
+				ifPresent: [ :reporter | reporter handleException: error ] ] ] forkNamed: 'queue consumer for: ', bindingKey asString

@@ -1,4 +1,4 @@
 as yet unclassified
 beRequestResponseHandlerFor: aBlock
-	messageHandler := MSRequestResponseHandler new 
-		delegate: aBlock
+	self messageHandler: (MSRequestResponseHandler new 
+		delegate: aBlock)
