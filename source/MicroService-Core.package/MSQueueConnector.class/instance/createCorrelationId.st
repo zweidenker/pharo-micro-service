@@ -1,3 +1,3 @@
 as yet unclassified
 createCorrelationId
-	^ 100000 atRandom 
+	^ 100000 atRandom asString
