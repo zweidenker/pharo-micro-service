@@ -1,7 +1,9 @@
 accessing
-sendResponse: response to: queue
+sendResponse: response headers: aDictionary to: queue
 	| message |
 	message := self client newSendFrameTo: queue.
+	aDictionary keysAndValuesDo: [ :key :value |
+		 message headerAt: key put: value ].
 	message 
 		"persistent: true;"
 		contentType: 'application/json; charset=utf-8';
