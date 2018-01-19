@@ -1,3 +1,3 @@
 as yet unclassified
 beResponseHandler
-	self beRequestResponseHandlerFor: [ :response | response ]
+	self beResponseHandlerFor: [ :response | response ]

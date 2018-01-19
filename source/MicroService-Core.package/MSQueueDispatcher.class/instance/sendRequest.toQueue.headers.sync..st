@@ -11,11 +11,12 @@ sendRequest: request toQueue: queueName headers: aDictionary sync: aBoolean
 	aDictionary keysAndValuesDo: [ :key :value |
 		 message headerAt: key put: value ].
 
+	correlationId := self createCorrelationId.
 	aBoolean 
 		ifTrue: [ message replyTo: '/temp-queue/', 100000 atRandom asString ]
 		ifFalse: [
 			message 
-				headerAt: 'correlation-id' put: self createCorrelationId;
+				headerAt: 'correlation-id' put:  correlationId;
 				headerAt: 'reply-queue' put: self replyQueue ].
 
 	c write: message.
