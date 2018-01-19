@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "",
-	"super" : "MSFutureResponse",
+	"super" : "MSPersistentFuture",
 	"category" : "MicroService-Core",
 	"classinstvars" : [ ],
 	"pools" : [ ],

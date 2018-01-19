@@ -1,15 +1,11 @@
 {
 	"commentStamp" : "",
-	"super" : "MSPersistentFuture",
+	"super" : "MSFuture",
 	"category" : "MicroService-Core",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [
-		"future",
-		"process",
-		"correlationId"
-	],
-	"name" : "MSLocalFuture",
+	"instvars" : [ ],
+	"name" : "MSPersistentFuture",
 	"type" : "normal"
 }
