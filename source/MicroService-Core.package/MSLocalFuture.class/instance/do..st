@@ -1,3 +1,3 @@
 enumerating
 do: aBlock
-	process := [ aBlock value ] fork.
+	process := [ (Delay forMilliseconds: 500) wait. aBlock value ] fork.
