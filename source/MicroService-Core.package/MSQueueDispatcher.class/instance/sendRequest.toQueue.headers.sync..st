@@ -1,6 +1,7 @@
 accessing
 sendRequest: request toQueue: queueName headers: aDictionary sync: aBoolean
 	| c message msg correlationId  |
+	semaphore critical: [  
 	self client isConnected ifFalse: [ self client open ].
 	c := self client.
 	message := c newSendFrameTo: queueName.
@@ -30,4 +31,4 @@ sendRequest: request toQueue: queueName headers: aDictionary sync: aBoolean
 			c close.
 			MSQueueFuture new
 				queueName: replyQueue;
-				correlationId: correlationId ]
+				correlationId: correlationId ] ]
