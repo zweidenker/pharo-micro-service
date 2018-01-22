@@ -2,12 +2,18 @@ accessing
 sendRequest: aRequest sync: aBoolean
 	| id |
 	id := 1000000 atRandom asString.
-	^ aBoolean 
+	^ aBoolean
 		ifTrue: [ aRequest directCall: delegate ]
 		ifFalse: [ | f |
-			f := MSLocalFuture new 
-				correlationId: id.
+			f := MSLocalFuture new correlationId: id.
 			service mobilityMap addFuture: f.
-			MMUtils logDebug: 'sending future ', aRequest asString, ' with correlation id ', id asString, ', mode ', aBoolean asString.
-			f do: [ (Delay forMilliseconds: 500) wait. service responseReceived: (aRequest directCall: delegate) correlationId: id ];
+			MMUtils
+				logDebug:
+					'sending future ' , aRequest asString , ' with correlation id '
+						, id asString , ', mode ' , aBoolean asString.
+			f
+				do: [ (Delay forMilliseconds: 500) wait.
+					service
+						resolveFutureWithId: id
+						withValue: (aRequest directCall: delegate) ];
 				yourself ]
