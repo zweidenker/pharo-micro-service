@@ -1,6 +1,6 @@
 accessing
 handleError: error
-	(error isKindOf: MSError)
+	^ (error isKindOf: MSError)
 		ifTrue: [ error ]
 		ifFalse: [  
 			self debugMode ifTrue: [ error pass ].
