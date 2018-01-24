@@ -7,8 +7,7 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"future",
-		"process",
-		"correlationId"
+		"process"
 	],
 	"name" : "MSLocalFuture",
 	"type" : "normal"
