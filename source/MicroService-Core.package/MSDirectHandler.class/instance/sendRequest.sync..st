@@ -1,7 +1,7 @@
 accessing
 sendRequest: aRequest sync: aBoolean
 	^ aBoolean
-		ifTrue: [ aRequest directCall: delegate ]
+		ifTrue: [ self handleRequest: aRequest  ]
 		ifFalse: [ | f |
 			f := MSLocalFuture new.
 			service mobilityMap addFuture: f.
@@ -10,5 +10,5 @@ sendRequest: aRequest sync: aBoolean
 				do: [ (Delay forMilliseconds: 500) wait.
 					service
 						resolveFuture: f
-						withValue: (aRequest directCall: delegate) ];
+						withValue: (self handleRequest: aRequest) ];
 				yourself ]
