@@ -2,4 +2,5 @@ initialize
 initialize
 	super initialize.
 	state := #unresolved.
-	successHandler := OrderedCollection new
+	successHandler := OrderedCollection new.
+	failHandler := OrderedCollection new

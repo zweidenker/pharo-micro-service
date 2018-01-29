@@ -8,7 +8,8 @@
 	"instvars" : [
 		"value",
 		"state",
-		"successHandler"
+		"successHandler",
+		"failHandler"
 	],
 	"name" : "MSFuture",
 	"type" : "normal"
