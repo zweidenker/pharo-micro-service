@@ -5,4 +5,5 @@ createClient
 		virtualHost: self virtualHost;
 		timeout: 10;
 		login: username;
-		passcode: password.
+		passcode: password;
+		debug: true.
