@@ -2,7 +2,6 @@ accessing
 sendResponse: response headers: aDictionary to: queue
 	| message |
 	message := self client newSendFrameTo: queue.
-	message headerAt: 'auto-delete' put: 'true'. 
 	aDictionary keysAndValuesDo: [ :key :value |
 		 message headerAt: key put: value ].
 	message 

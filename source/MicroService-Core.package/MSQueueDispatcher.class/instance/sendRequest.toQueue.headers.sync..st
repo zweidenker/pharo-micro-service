@@ -5,7 +5,6 @@ sendRequest: request toQueue: queueName headers: aDictionary sync: aBoolean
 	self client isConnected ifFalse: [ self client open ].
 	c := self client.
 	message := c newSendFrameTo: queueName.
-	message headerAt: 'auto-delete' put: 'true'.
 	message
 		contentType: 'application/json; charset=utf-8';
 		body: (self serialize: request).
@@ -26,10 +25,8 @@ sendRequest: request toQueue: queueName headers: aDictionary sync: aBoolean
 	^ aBoolean 
 		ifTrue: [ 
 			msg := c readMessage.
-			c close.
 			(self materializeResponseFrom: msg) ]
 		ifFalse: [
-			c close.
 			MSQueueFuture new
 				queueName: replyQueue;
 				correlationId: correlationId ] ]
