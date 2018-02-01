@@ -8,6 +8,7 @@ handleMessage: message
 		headers := Dictionary new.
 		(message headerAt: 'reply-to' ifAbsent: [nil]) isNil
 			ifTrue: [ 
+				headers at: 'x-expires' put: '120000'.
 				headers at: 'correlation-id' put: (message headerAt: 'correlation-id') ].
 		queue
 			sendResponse: response

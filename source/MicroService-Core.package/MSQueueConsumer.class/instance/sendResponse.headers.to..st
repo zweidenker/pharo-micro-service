@@ -2,7 +2,6 @@ accessing
 sendResponse: response headers: aDictionary to: queue
 	| message |
 	message := self client newSendFrameTo: queue.
-	message headerAt: 'x-expires' put: '120000'.
 	aDictionary keysAndValuesDo: [ :key :value |
 		 message headerAt: key put: value ].
 	message 
