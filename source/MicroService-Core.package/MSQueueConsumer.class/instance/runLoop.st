@@ -7,4 +7,5 @@ runLoop
 		headerAt: 'x-expires' put: '120000';
 		yourself).
 	self client
-		runWith: [ :message | self handleMessage: message ]
+		runWith: [ :message | self handleMessage: message ].
+	Error signal: 'should never arrive here'
