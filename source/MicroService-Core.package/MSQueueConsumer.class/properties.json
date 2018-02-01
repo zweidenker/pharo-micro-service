@@ -7,9 +7,9 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"process",
-		"service",
 		"debugMode",
-		"messageHandler"
+		"messageHandler",
+		"handler"
 	],
 	"name" : "MSQueueConsumer",
 	"type" : "normal"

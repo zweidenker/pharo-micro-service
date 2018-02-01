@@ -7,7 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"sender",
-		"receiver"
+		"receiver",
+		"futures"
 	],
 	"name" : "MSQueueHandler",
 	"type" : "normal"

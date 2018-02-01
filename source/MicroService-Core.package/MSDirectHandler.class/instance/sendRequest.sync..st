@@ -4,7 +4,6 @@ sendRequest: aRequest sync: aBoolean
 		ifTrue: [ self handleRequest: aRequest  ]
 		ifFalse: [ | f |
 			f := MSLocalFuture new.
-			service mobilityMap addFuture: f.
 			MMUtils logDebug: 'sending future ' , aRequest asString , ', mode ' , aBoolean asString.
 			f
 				do: [ (Delay forMilliseconds: 500) wait.

@@ -8,4 +8,4 @@ beResponseHandler
 				logDebug:
 					'received response ' , response class name , ' with correlation-id '
 						, id asString.
-			service resolveFutureWithId: id withValue: response ]
+			handler resolveFutureWithId: id withValue: response ]
