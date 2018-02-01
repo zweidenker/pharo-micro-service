@@ -7,5 +7,11 @@ runLoop
 		headerAt: 'x-expires' put: '120000';
 		yourself).
 	self client
-		runWith: [ :message | self handleMessage: message ].
+		runWith: [ :message | 
+			[ self handleMessage: message ]
+			on: Error 
+			do: [ :err | 
+				Smalltalk 
+					at: #ExceptionReporter
+					ifPresent: [ :cls | cls handleException: err ] ] ].
 	Error signal: 'should never arrive here'
