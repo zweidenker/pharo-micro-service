@@ -1,21 +1,24 @@
 accessing
 handleMessage: message
-	| time request response headers |
+	| time request response outgoingHeaders |
 	MSUtils logInfo: 'got message: ', message asString.
 	time := [ 
 		request := self materializeRequestFrom: message.
 		response := self handleRequest: request.
-		headers := Dictionary new.
+		outgoingHeaders := Dictionary new.
+		headers keysAndValuesDo: [ :name :value |
+			MSUtils logDebug: 'copying header ', name, ' with value ', value.
+			outgoingHeaders headerAt: name put: value ].
 		(message headerAt: 'reply-to' ifAbsent: [nil]) isNil
 			ifTrue: [ 
 				#( exclusive ) do: [ :headerName |
 					 (message headerAt: headerName ifAbsent: [nil])
 						ifNotNil: [ :value |
-							headers at: headerName put: value ]].
-				"headers at: 'x-expires' put: '120000'."
-				headers at: 'correlation-id' put: (message headerAt: 'correlation-id') ].
+							MSUtils logDebug: 'copying static header ', headerName, ' with value ', value.
+							outgoingHeaders at: headerName put: value ]].
+				outgoingHeaders at: 'correlation-id' put: (message headerAt: 'correlation-id') ].
 		queue
 			sendResponse: response
-			headers: headers
+			headers: outgoingHeaders 
 			to: (self responseQueueFor: message) ] timeToRun.
 	MSUtils logDebug: 'time = ', time asString

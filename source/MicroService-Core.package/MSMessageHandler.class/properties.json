@@ -7,7 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"queue",
-		"delegate"
+		"delegate",
+		"headers"
 	],
 	"name" : "MSMessageHandler",
 	"type" : "normal"
