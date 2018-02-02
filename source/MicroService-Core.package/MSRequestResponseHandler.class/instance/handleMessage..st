@@ -8,7 +8,7 @@ handleMessage: message
 		outgoingHeaders := Dictionary new.
 		headers keysAndValuesDo: [ :name :value |
 			MSUtils logDebug: 'copying header ', name, ' with value ', value.
-			outgoingHeaders headerAt: name put: value ].
+			outgoingHeaders at: name put: value ].
 		(message headerAt: 'reply-to' ifAbsent: [nil]) isNil
 			ifTrue: [ 
 				#( exclusive ) do: [ :headerName |
