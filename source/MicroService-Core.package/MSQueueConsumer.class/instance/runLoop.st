@@ -16,4 +16,4 @@ runLoop
 				Smalltalk 
 					at: #ExceptionReporter
 					ifPresent: [ :cls | cls handleException: err ] ] ].
-	Error signal: 'should never arrive here'
+	MSUtils logError: 'runLoop exited'.
