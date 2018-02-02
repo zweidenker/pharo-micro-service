@@ -7,15 +7,11 @@ runLoop
 	headers keysAndValuesDo: [ :name :value |
 		frame headerAt: name put: value ].
 	self client write: frame.
-	self client
-		runWith: [ :message | 
-			[ self handleMessage: message ]
-			on: Error 
-			do: [ :err | 
+	[
+		[ self client runWith: [ :message | self handleMessage: message  ] ]
+			on:Error 
+			do: [:err | 
 				MSUtils logError: err messageText.
-				Smalltalk 
-					at: #ExceptionReporter
-					ifPresent: [ :cls | cls handleException: err ].
-				Smalltalk snapshot: false andQuit: true  ] ].
-	MSUtils logError: 'runLoop exited'.
-	
+					Smalltalk 
+						at: #ExceptionReporter
+						ifPresent: [ :cls | cls handleException: err ]]] repeat	
