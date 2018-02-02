@@ -26,7 +26,8 @@ sendRequest: request toQueue: queueName headers: aDictionary sync: aBoolean
 	^ aBoolean 
 		ifTrue: [ 
 			msg := c readMessage.
-			(self materializeResponseFrom: msg) ]
+			(self materializeResponseFrom: msg).
+			c close ]
 		ifFalse: [
 			MSQueueFuture new
 				queueName: replyQueue;
