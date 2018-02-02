@@ -9,6 +9,5 @@ handlerSendingTo: sendingQueue receivingFrom: receivingQueue
    			host: hostname;
    			username: username password: password;
    			bindingKey: receivingQueue;
-			beResponseHandler;
-			start);
+			beResponseHandler);
 		yourself
