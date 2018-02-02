@@ -12,4 +12,3 @@ start
 			Smalltalk 
 				at: #ExceptionReporter
 				ifPresent: [ :reporter | reporter handleException: error ] ] ] forkNamed: 'queue consumer for: ', bindingKey asString.
-		Smalltalk snapshot: false andQuit: true.
