@@ -5,13 +5,17 @@ sendRequest: request toQueue: queueName headers: aDictionary sync: aBoolean
 	self client isConnected ifFalse: [ self client open ].
 	c := self client.
 	message := c newSendFrameTo: queueName.
- 	"message headerAt: 'x-expires' put: '120000'."
+
+	headers keysAndValuesDo: [ :name :value |
+		message headerAt: name put: value ].
+
+	aDictionary keysAndValuesDo: [ :key :value |
+		 message headerAt: key put: value ].
+
 	message
 		contentType: 'application/json; charset=utf-8';
 		body: (self serialize: request).
 		
-	aDictionary keysAndValuesDo: [ :key :value |
-		 message headerAt: key put: value ].
 
 	correlationId := self createCorrelationId.
 	aBoolean 

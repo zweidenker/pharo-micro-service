@@ -13,7 +13,8 @@
 		"username",
 		"password",
 		"virtualHost",
-		"bindingKey"
+		"bindingKey",
+		"headers"
 	],
 	"name" : "MSQueueConnector",
 	"type" : "normal"

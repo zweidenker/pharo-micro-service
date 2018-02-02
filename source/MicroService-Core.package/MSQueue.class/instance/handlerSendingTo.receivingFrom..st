@@ -10,5 +10,6 @@ handlerSendingTo: sendingQueue receivingFrom: receivingQueue
    			username: username password: password;
    			bindingKey: receivingQueue;
 			beResponseHandler;
+			headerAt: 'exclusive' put: 'true';
 			start);
 		yourself
