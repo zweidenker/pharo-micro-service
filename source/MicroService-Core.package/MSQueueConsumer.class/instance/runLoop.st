@@ -15,5 +15,7 @@ runLoop
 				MSUtils logError: err messageText.
 				Smalltalk 
 					at: #ExceptionReporter
-					ifPresent: [ :cls | cls handleException: err ] ] ].
+					ifPresent: [ :cls | cls handleException: err ].
+				Smalltalk snapshot: false andQuit: true  ] ].
 	MSUtils logError: 'runLoop exited'.
+	
