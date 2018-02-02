@@ -4,7 +4,7 @@ runLoop
 	self client open.
 	subscription := (self client newSubscriptionTo: bindingKey).
 	self client write: (subscription subscribeFrame 
-		headerAt: 'x-expires' put: '120000';
+		"headerAt: 'x-expires' put: '120000';"
 		yourself).
 	self client
 		runWith: [ :message | 

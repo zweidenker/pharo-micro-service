@@ -5,7 +5,7 @@ sendRequest: request toQueue: queueName headers: aDictionary sync: aBoolean
 	self client isConnected ifFalse: [ self client open ].
 	c := self client.
 	message := c newSendFrameTo: queueName.
- 	message headerAt: 'x-expires' put: '120000'.
+ 	"message headerAt: 'x-expires' put: '120000'."
 	message
 		contentType: 'application/json; charset=utf-8';
 		body: (self serialize: request).
