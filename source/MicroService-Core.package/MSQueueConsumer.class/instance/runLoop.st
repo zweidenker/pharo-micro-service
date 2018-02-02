@@ -1,11 +1,12 @@
 accessing
 runLoop
-	| subscription |
+	| subscription frame |
 	self client open.
 	subscription := (self client newSubscriptionTo: bindingKey).
-	self client write: (subscription subscribeFrame 
-		"headerAt: 'x-expires' put: '120000';"
-		yourself).
+	frame := subscription subscribeFrame.
+	headers keysAndValuesDo: [ :name :value |
+		frame headerAt: name put: value ].
+	self client write: frame.
 	self client
 		runWith: [ :message | 
 			[ self handleMessage: message ]
