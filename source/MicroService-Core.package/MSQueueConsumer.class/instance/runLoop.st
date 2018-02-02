@@ -11,6 +11,7 @@ runLoop
 			[ self handleMessage: message ]
 			on: Error 
 			do: [ :err | 
+				MSUtils logError: err messageText.
 				Smalltalk 
 					at: #ExceptionReporter
 					ifPresent: [ :cls | cls handleException: err ] ] ].
