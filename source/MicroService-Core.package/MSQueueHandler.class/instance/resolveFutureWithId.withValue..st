@@ -4,6 +4,7 @@ resolveFutureWithId: id withValue: response
 		on: Error 
 		do: [ :err |
 			MSUtils logError: err messageText.
+			(futures at: id) resolveError: err.
 			Smalltalk
 				at: #ExceptionReporter
-				ifPresent: [ :cls | cls handleException: err ]  ] ] fork
+				ifPresent: [ :cls | cls handleException: err ] ] ] fork
