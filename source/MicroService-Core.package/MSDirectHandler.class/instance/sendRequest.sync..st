@@ -1,12 +1,17 @@
 accessing
 sendRequest: aRequest sync: aBoolean
 	^ aBoolean
-		ifTrue: [ self handleRequest: aRequest  ]
+		ifTrue: [ | response |
+			response := self handleRequest: aRequest.
+			response isError ifTrue: [ 
+				response signal ].
+			response]
 		ifFalse: [ | f |
 			f := MSLocalFuture new.
 			MMUtils logDebug: 'sending future ' , aRequest asString , ', mode ' , aBoolean asString.
 			f
-				do: [ (Delay forMilliseconds: 500) wait.
+				do: [ 
+					
 					service
 						resolveFuture: f
 						withValue: (self handleRequest: aRequest) ];

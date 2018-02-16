@@ -6,7 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"delegate"
+		"delegate",
+		"debugMode"
 	],
 	"name" : "MSDirectHandler",
 	"type" : "normal"
