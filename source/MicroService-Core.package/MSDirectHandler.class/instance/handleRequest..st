@@ -7,6 +7,7 @@ handleRequest: aRequest
 			ifFalse: [ MSMissingResponse signal: response asString  ] ]
 			on: Error
 			do: [ :error | response := self handleError: error].
-	^ NeoJSONReader 
-		fromString:  (NeoJSONWriter toString: response)
-		as: response class
+	^ (NeoJSONReader on: (NeoJSONWriter toString: response) readStream)
+		mapClass: NeoJSONObject;
+		propertyNamesAsSymbols: true;
+		nextAs: response class
