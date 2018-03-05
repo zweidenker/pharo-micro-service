@@ -6,4 +6,5 @@ createClient
 		timeout: 10;
 		login: username;
 		passcode: password;
+		timeout: 20;
 		debug: true.
