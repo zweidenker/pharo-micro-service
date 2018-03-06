@@ -2,8 +2,11 @@ accessing
 sendRequest: request toQueue: queueName headers: aDictionary sync: aBoolean
 	| c message msg correlationId  |
 	semaphore critical: [  
-	self client isConnected ifFalse: [ self client open ].
 	c := self client.
+
+	c isConnected ifFalse: [ 
+		MSUtils logInfo: 'connection is not connected. connecting...'.
+		c open ].
 	message := c newSendFrameTo: queueName.
 
 	aBoolean ifFalse: [  
@@ -33,6 +36,8 @@ sendRequest: request toQueue: queueName headers: aDictionary sync: aBoolean
 		ifTrue: [ 
 			msg := c readMessage.
 			MSUtils logInfo: 'got sync response: ', msg asString.
+			MSUtils logInfo: 'closing connection'.
+			c close.
 			(self materializeResponseFrom: msg) ]
 		ifFalse: [
 			MSQueueFuture new
