@@ -19,7 +19,7 @@ sendRequest: request toQueue: queueName headers: aDictionary sync: aBoolean
 
 	correlationId := self createCorrelationId.
 	aBoolean 
-		ifTrue: [ message replyTo: '/temp-queue/', 100000 atRandom asString ]
+		ifTrue: [ message replyTo: '/temp-queue/', UUID new asString36 ]
 		ifFalse: [
 			message 
 				headerAt: 'correlation-id' put:  correlationId;
