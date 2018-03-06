@@ -32,6 +32,7 @@ sendRequest: request toQueue: queueName headers: aDictionary sync: aBoolean
 	^ aBoolean 
 		ifTrue: [ 
 			msg := c readMessage.
+			MSUtils logInfo: 'got sync response: ', msg asString.
 			(self materializeResponseFrom: msg) ]
 		ifFalse: [
 			MSQueueFuture new
