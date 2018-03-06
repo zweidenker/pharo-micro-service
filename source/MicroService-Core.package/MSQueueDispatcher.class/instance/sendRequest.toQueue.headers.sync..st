@@ -26,6 +26,7 @@ sendRequest: request toQueue: queueName headers: aDictionary sync: aBoolean
 				headerAt: 'reply-queue' put: self replyQueue ].
 	MSUtils logDebug: 'sending message: ', message asString.
 	c write: message.
+	MSUtils logDebug: 'sent message: ', message asString.
 	
 	^ aBoolean 
 		ifTrue: [ 

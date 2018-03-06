@@ -1,6 +1,6 @@
 accessing
 start
-	self ensureQueueIsPresent.
+	(MSPortChecker new port: 61613) waitForOpenPort.
 	process := [ 
 		[ 
 			MSUtils logInfo: 'Starting run loop'.
