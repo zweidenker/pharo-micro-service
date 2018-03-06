@@ -37,10 +37,11 @@ sendRequest: request toQueue: queueName headers: aDictionary sync: aBoolean
 			msg := c readMessage.
 			MSUtils logInfo: 'got sync response: ', msg asString.
 			MSUtils logInfo: 'closing connection'.
-			c close.
+			"try again without"
+			"c close."
 			(self materializeResponseFrom: msg) ]
 		ifFalse: [
-			c close.
+			"c close."
 			MSQueueFuture new
 				queueName: replyQueue;
 				correlationId: correlationId ] ]
