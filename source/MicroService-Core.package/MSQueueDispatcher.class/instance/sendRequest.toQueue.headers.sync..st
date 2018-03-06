@@ -6,8 +6,9 @@ sendRequest: request toQueue: queueName headers: aDictionary sync: aBoolean
 	c := self client.
 	message := c newSendFrameTo: queueName.
 
-	headers keysAndValuesDo: [ :name :value |
-		message headerAt: name put: value ].
+	aBoolean ifFalse: [  
+		headers keysAndValuesDo: [ :name :value |
+			message headerAt: name put: value ]] .
 
 	aDictionary keysAndValuesDo: [ :key :value |
 		 message headerAt: key put: value ].

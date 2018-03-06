@@ -13,7 +13,6 @@ runLoop
 			[ self handleMessage: message ]
 			on: Error 
 			do: [ :err |
-				MSUtils logError: err.
 				(err class = ConnectionTimedOut) ifTrue: [ err pass ].
 				self 
 					sendResponse: (MSError fromError: err)
