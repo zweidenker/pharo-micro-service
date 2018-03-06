@@ -18,7 +18,7 @@ runLoop
 					sendResponse: (MSError fromError: err)
 					headers: Dictionary new
 					to: (self responseQueueFor: message)
-				  ]  ] ]
+				  ] ] ]
 		on:Error 
 		do: [:err | 
 			MSUtils logError: err messageText.

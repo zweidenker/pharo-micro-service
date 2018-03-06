@@ -1,6 +1,6 @@
 accessing
 start
-	(MSPortChecker new port: 61613) waitForOpenPort.
+	(MSPortChecker new host: self host port: 61613) waitForOpenPort.
 	process := [ 
 		[ 
 			MSUtils logInfo: 'Starting run loop'.
