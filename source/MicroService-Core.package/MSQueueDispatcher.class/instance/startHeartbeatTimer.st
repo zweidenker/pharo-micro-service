@@ -1,6 +1,9 @@
 accessing
 startHeartbeatTimer
 	MSUtils logInfo: 'starting heartbeat timer'.
+	heartbeatProcess ifNotNil: [ 
+		MSUtils logInfo: 'heartbeat timer already started...'.
+		^ self  ].
 	heartbeatProcess := [ | time |
 		self client isConnected ifFalse: [ self client open ].
 		time := self client heartbeat / 2.
