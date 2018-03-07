@@ -6,7 +6,7 @@ startHeartbeatTimer
 		^ self  ].
 	heartbeatProcess := [ | time |
 		self client isConnected ifFalse: [ self client open ].
-		time := self client heartbeat / 2.
+		time := self client heartbeat.
 		[  
 			time milliSeconds wait.
 			semaphore critical: [ 
