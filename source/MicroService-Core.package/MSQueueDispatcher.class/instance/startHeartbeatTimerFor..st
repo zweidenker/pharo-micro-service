@@ -1,14 +1,14 @@
 accessing
-startHeartbeatTimer
+startHeartbeatTimerFor: aClient
 	heartbeatProcess := [ | time |
-		self client isConnected ifFalse: [ client open ].
-		time := client heartbeat / 2.
+		aClient isConnected ifFalse: [ aClient open ].
+		time := aClient heartbeat / 2.
 		[  
 			time milliSeconds wait.
 			semaphore critical: [ 
 				"client readHeartbeatMessage 
 					ifTrue: [ self client writeHeartbeat  ]
-					ifFalse: [" self client writeHeartbeatIfNeeded.  "] "
+					ifFalse: [" aClient writeHeartbeatIfNeeded.  "] "
 				Transcript show: 'heartbeat sent';cr.
 			]
 		 ] repeat ] forkNamed: 'queue dispatcher heartbeat'
