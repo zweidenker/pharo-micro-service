@@ -1,6 +1,9 @@
 accessing
 start
 	(MSPortChecker new host: self host; port: 61613) waitForOpenPort.
+	process ifNotNil: [ 
+		MSUtils logInfo: 'consumer process already started...'.
+		^ self ].
 	process := [ 
 		[ 
 			MSUtils logInfo: 'Starting run loop'.
