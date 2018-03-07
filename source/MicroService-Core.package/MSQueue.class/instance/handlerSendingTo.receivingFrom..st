@@ -5,7 +5,7 @@ handlerSendingTo: sendingQueue receivingFrom: receivingQueue
 			 host: hostname;
           username: username password: password;
           bindingKey: sendingQueue;
-			 start )
+			 startTimer )
 		receiver: (MSQueueConsumer new
    			host: hostname;
    			username: username password: password;
