@@ -7,7 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"semaphore",
-		"replyQueue"
+		"replyQueue",
+		"heartbeatProcess"
 	],
 	"name" : "MSQueueDispatcher",
 	"type" : "normal"
