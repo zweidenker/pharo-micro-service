@@ -8,6 +8,5 @@ handleRequest: aRequest
 			on: Error
 			do: [ :error | response := self handleError: error].
 	^ (NeoJSONReader on: (NeoJSONWriter toString: response) readStream)
-		mapClass: NeoJSONObject;
 		propertyNamesAsSymbols: true;
 		nextAs: response class
