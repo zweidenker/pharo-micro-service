@@ -10,7 +10,8 @@
 	"instvars" : [
 		"hostname",
 		"username",
-		"password"
+		"password",
+		"virtualHost"
 	],
 	"name" : "MSQueue",
 	"type" : "normal"
