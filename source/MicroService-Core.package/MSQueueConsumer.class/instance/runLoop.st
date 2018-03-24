@@ -2,7 +2,7 @@ accessing
 runLoop
 	| subscription frame |
 	[ 
-	self client open.
+	self openClient.
 	subscription := (self client newSubscriptionTo: bindingKey).
 	frame := subscription subscribeFrame.
 	headers keysAndValuesDo: [ :name :value |
