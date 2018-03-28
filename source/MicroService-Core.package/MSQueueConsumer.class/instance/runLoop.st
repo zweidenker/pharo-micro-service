@@ -9,16 +9,7 @@ runLoop
 		frame headerAt: name put: value ].
 	self client write: frame.
 	
-	[ self client runWith: [ :message | 
-			[ self handleMessage: message ]
-			on: Error 
-			do: [ :err |
-				(err class = ConnectionTimedOut) ifTrue: [ err pass ].
-				self 
-					sendResponse: (MSError fromError: err)
-					headers: Dictionary new
-					to: (self responseQueueFor: message)
-				  ] ] ]
+	[ self client runWith: [ :message |  self handleMessage: message ] ]
 		on:Error 
 		do: [:err | 
 			MSUtils logError: err messageText.
