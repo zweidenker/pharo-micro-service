@@ -10,7 +10,7 @@ sendRequest: aRequest sync: aBoolean
 			future := MSQueueFuture new
 				queueName: sender replyQueue;
 				correlationId: correlationId.
-			MSUtils logInfo: 'adding future with id ', result id asString.
+			MSUtils logInfo: 'adding future with id ', future id asString.
 			self futureAt: correlationId put: future. 
 			sender sendRequest: aRequest headers: {'correlation-id' -> correlationId } asDictionary sync: aBoolean.
 			future ]
