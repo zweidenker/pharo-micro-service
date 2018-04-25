@@ -2,4 +2,4 @@ enumerating
 onFailureDo: aBlock
 	failHandler add: aBlock.
 	self isError ifTrue: [ 
-		failHandler value: value ]
+		failHandler do: [:each | each value: value ] ]
