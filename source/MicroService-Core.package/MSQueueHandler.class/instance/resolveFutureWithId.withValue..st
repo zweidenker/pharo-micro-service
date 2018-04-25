@@ -1,6 +1,9 @@
 responding
 resolveFutureWithId: id withValue: response 
-	[ [ (futures at: id) resolve: response ]
+	[ [ (futures 
+			at: id 
+			ifAbsent: [ 
+				MSUtils logError: 'did not find future for ', id asString. ^ self ]) resolve: response ]
 		on: Error 
 		do: [ :err |
 			MSUtils logError: err messageText.
