@@ -22,12 +22,10 @@ sendRequest: request toQueue: queueName headers: aDictionary sync: aBoolean
 		body: (self serialize: request).
 		
 
-	correlationId := self createCorrelationId.
 	aBoolean 
 		ifTrue: [ message replyTo: '/temp-queue/', UUID new asString36 ]
 		ifFalse: [
 			message 
-				headerAt: 'correlation-id' put:  correlationId;
 				headerAt: 'reply-queue' put: self replyQueue ].
 	MSUtils logDebug: 'sending message: ', message asString.
 	c write: message.
