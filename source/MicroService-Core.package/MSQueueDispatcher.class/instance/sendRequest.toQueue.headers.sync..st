@@ -6,7 +6,8 @@ sendRequest: request toQueue: queueName headers: aDictionary sync: aBoolean
 
 	c isConnected ifFalse: [ 
 		MSUtils logInfo: 'connection is not connected. connecting...'.
-		c open ].
+		[ c open ]
+		on: StampError do: [ :err | Transcript show: 'got stamp error while opening connection' "ignore" ] ].
 	message := c newSendFrameTo: queueName.
 
 	aBoolean ifFalse: [  
@@ -34,7 +35,9 @@ sendRequest: request toQueue: queueName headers: aDictionary sync: aBoolean
 	
 	^ aBoolean 
 		ifTrue: [ 
-			msg := c readMessage.
+			[ msg := c readMessage ]
+				on: StampError 
+				do: [:err | Transcript show: 'got stamp error while reading sync message' ."ignore once and try again " msg := c readMessage ].
 			MSUtils logInfo: 'got sync response: ', msg asString.
 			MSUtils logInfo: 'closing connection'.
 			c close.
