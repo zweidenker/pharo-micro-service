@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "MSFuture",
+	"category" : "MicroService-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"valueSemaphore"
+	],
+	"name" : "MSPromise",
+	"type" : "normal"
+}
