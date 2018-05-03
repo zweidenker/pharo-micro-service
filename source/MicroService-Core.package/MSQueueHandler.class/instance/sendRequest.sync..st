@@ -13,10 +13,8 @@ sendRequest: aRequest sync: aBoolean
 				sender sendRequest: aRequest headers: { 'correlation-id' -> correlationId } asDictionary sync: false ].
 			^ promise value ]
 		ifFalse: [ | future |
-			future := MSQueueFuture new
-				queueName: sender replyQueue;
-				correlationId: correlationId.
+			future := MSFuture new.
 			MSUtils logInfo: 'adding future with id ', future id asString.
 			self futureAt: correlationId put: future. 
-			sender sendRequest: aRequest headers: {'correlation-id' -> correlationId } asDictionary sync: aBoolean.
+			sender sendRequest: aRequest headers: {'correlation-id' -> correlationId } asDictionary sync: false.
 			future ]
