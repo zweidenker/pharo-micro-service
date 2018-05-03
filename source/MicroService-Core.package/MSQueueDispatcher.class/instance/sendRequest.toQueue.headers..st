@@ -25,4 +25,4 @@ sendRequest: request toQueue: queueName headers: aDictionary
 		c write: message.
 		MSUtils logDebug: 'sent message: ', message asString.
 	
-		c close ]
+		"c close "]

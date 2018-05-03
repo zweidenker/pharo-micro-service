@@ -1,6 +1,6 @@
 accessing
 startHeartbeatTimer
-	"MSUtils logInfo: 'starting heartbeat timer'.
+	MSUtils logInfo: 'starting heartbeat timer'.
 	heartbeatProcess ifNotNil: [ 
 		MSUtils logInfo: 'heartbeat timer already started...'.
 		^ self  ].
@@ -13,4 +13,4 @@ startHeartbeatTimer
 				 self client writeHeartbeatIfNeeded. 
 				MSUtils logInfo: 'heartbeat sent'.
 			]
-		 ] repeat ] forkNamed: 'queue dispatcher heartbeat'"
+		 ] repeat ] forkNamed: 'queue dispatcher heartbeat'
