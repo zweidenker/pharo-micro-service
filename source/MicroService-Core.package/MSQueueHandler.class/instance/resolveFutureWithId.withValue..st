@@ -1,6 +1,8 @@
 responding
 resolveFutureWithId: id withValue: response 
-	[ [ (futures at: id) resolve: response ]
+	[ [ response isError 
+			ifTrue: [ (futures at: id) resolveError: response ] 
+			ifFalse: [ (futures at: id) resolve: response ] ]
 		on: Error 
 		do: [ :err |
 			MSUtils logError: err messageText.
