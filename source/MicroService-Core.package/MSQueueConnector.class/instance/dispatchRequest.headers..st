@@ -1,5 +1,5 @@
 accessing
-dispatchRequest: aRequest headers: dict sync: aBoolean
+dispatchRequest: aRequest headers: dict
 	| d |
 	d := dict copy.
 	d at: #requestClass put: aRequest class name.
@@ -7,4 +7,3 @@ dispatchRequest: aRequest headers: dict sync: aBoolean
 		sendRequest: aRequest
 		toQueue: bindingKey
 		headers: d
-		sync: aBoolean

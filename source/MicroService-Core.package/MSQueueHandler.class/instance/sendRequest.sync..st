@@ -10,11 +10,11 @@ sendRequest: aRequest sync: aBoolean
 			promise := MSPromise new.
 			self futureAt: correlationId put: promise. 
 			promise asyncDo: [ 
-				sender sendRequest: aRequest headers: { 'correlation-id' -> correlationId } asDictionary sync: false ].
+				sender sendRequest: aRequest headers: { 'correlation-id' -> correlationId } asDictionary ].
 			^ promise value ]
 		ifFalse: [ | future |
 			future := MSFuture new.
-			MSUtils logInfo: 'adding future with id ', future id asString.
+			MSUtils logInfo: 'adding future with id ', correlationId asString.
 			self futureAt: correlationId put: future. 
-			sender sendRequest: aRequest headers: {'correlation-id' -> correlationId } asDictionary sync: false.
+			sender sendRequest: aRequest headers: {'correlation-id' -> correlationId } asDictionary.
 			future ]
