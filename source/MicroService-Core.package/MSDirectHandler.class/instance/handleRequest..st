@@ -7,7 +7,7 @@ handleRequest: aRequest
 			ifFalse: [ MSMissingResponse signal: response asString  ] ]
 			on: Error
 			do: [ :error | 
-				(CurrentExecutionEnvironment value isKindOf: TestExecutionEnvironment) ifTrue: [ error pass ].
+				"(CurrentExecutionEnvironment value isKindOf: TestExecutionEnvironment) ifTrue: [ error pass ]."
 				response := self handleError: error].
 	^ (NeoJSONReader on: (NeoJSONWriter toString: response) readStream)
 		propertyNamesAsSymbols: true;
