@@ -1,3 +1,0 @@
-accessing
-createClient
-	^ ZnClient new

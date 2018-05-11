@@ -1,3 +1,0 @@
-accessing
-service: anObject
-	handler := anObject
