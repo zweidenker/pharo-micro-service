@@ -1,0 +1,20 @@
+accessing
+runLoop
+	| subscription frame |
+	[ 
+	self openClient: self receiverClient.
+	MSUtils logInfo: 'receiver client subscribe to: ', receiverQueue asString.
+	subscription := (self receiverClient newSubscriptionTo: receiverQueue).
+	frame := subscription subscribeFrame.
+	self receiverClient write: frame.
+	
+	[ self receiverClient runWith: [ :message | self handleMessage: message ] ]
+		on:Error 
+		do: [:err | 
+			err pass.
+			MSUtils logError: err messageText.
+			Smalltalk 
+				at: #ExceptionReporter
+				ifPresent: [ :cls | cls handleException: err ]].
+		self resetReceiver. 
+		MSUtils logDebug: 'restarting runLoop' ] repeat	

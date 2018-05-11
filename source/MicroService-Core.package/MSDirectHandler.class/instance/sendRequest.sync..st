@@ -6,13 +6,14 @@ sendRequest: aRequest sync: aBoolean
 			response isError ifTrue: [ 
 				response signal ].
 			response]
-		ifFalse: [ | f |
+		ifFalse: [ | f value |
 			f := MSLocalFuture new.
 			MMUtils logDebug: 'sending future ' , aRequest asString , ', mode ' , aBoolean asString.
+			value := self handleRequest: aRequest.
 			f
 				do: [ 
 					
 					service
 						resolveFuture: f
-						withValue: (self handleRequest: aRequest) ];
+						withValue: value ];
 				yourself ]

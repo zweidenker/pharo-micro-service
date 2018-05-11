@@ -1,0 +1,19 @@
+{
+	"commentStamp" : "",
+	"super" : "MSQueue",
+	"category" : "MicroService-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"senderClient",
+		"senderSemaphore",
+		"receiverClient",
+		"receiverQueue",
+		"receiverProcess",
+		"heartbeatProcess",
+		"messageHandler"
+	],
+	"name" : "MSFullQueue",
+	"type" : "normal"
+}

@@ -1,3 +1,3 @@
 accessing
 virtualHost
-	^ virtualHost
+	^ virtualHost ifNil: [ '/' ]

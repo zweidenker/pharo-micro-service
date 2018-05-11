@@ -3,6 +3,6 @@ handleMessage: message
 	| response |
 	MSUtils logInfo: 'got message: ', message asString.
 	response := self materializeResponseFrom: message.
-	^ [ delegate value: response value: message headers ]
+	^ [ self handleResponse: response headers: message headers ]
 		on: Error
 		do: [ :err | self handleError: err ]
