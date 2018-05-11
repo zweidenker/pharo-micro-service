@@ -12,7 +12,6 @@ runLoop
 	[ self receiverClient runWith: [ :message | self handleMessage: message ] ]
 		on:Error 
 		do: [:err | 
-			err pass.
 			MSUtils logError: err messageText.
 			Smalltalk 
 				at: #ExceptionReporter

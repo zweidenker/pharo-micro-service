@@ -8,7 +8,7 @@ sendJSONObject: object to: queue headers: aDictionary
 			MSUtils logInfo: 'connection is not connected. connecting...'.
 			[ c open ]
 				on: StampError 
-				do: [ :err | Transcript show: 'got stamp error while opening connection' "ignore" ] ].
+				do: [ :err | MSUtils logError: 'got stamp error while opening connection' "ignore" ] ].
 
 		message := c newSendFrameTo: queue.
 		aDictionary keysAndValuesDo: [ :key :value |

@@ -1,4 +1,4 @@
 accessing
 start
-	self startTimer.
+	self startSender.
 	self startReceiver.

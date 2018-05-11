@@ -4,9 +4,7 @@ sendRequest: request to: queueName headers: aDictionary
 		sendJSONObject: request
 		to: queueName
 		headers:
-			(aDictionary
-				copyWithAll:
-					{
-					('auto-delete' -> 'true'). 
-					('requestClass' -> request class name).
-					('reply-queue' -> receiverQueue)} asDictionary)
+			(aDictionary copyWithAll: {
+				('auto-delete' -> 'true'). 
+				('requestClass' -> request class name).
+				('reply-queue' -> receiverQueue)} asDictionary )

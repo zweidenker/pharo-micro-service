@@ -3,7 +3,7 @@ startHeartbeatTimer
 	MSUtils logInfo: 'starting heartbeat timer'.
 	heartbeatProcess ifNotNil: [ 
 		MSUtils logInfo: 'heartbeat timer already started...'.
-		^ self  ].
+		heartbeatProcess terminate  ].
 	heartbeatProcess := [ | time |
 		self senderClient isConnected ifFalse: [ self senderClient open ].
 		time := self senderClient heartbeat.
