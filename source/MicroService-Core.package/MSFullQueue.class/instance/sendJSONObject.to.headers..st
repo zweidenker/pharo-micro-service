@@ -1,5 +1,5 @@
 as yet unclassified
-sendJSONObject: object headers: aDictionary to: queue
+sendJSONObject: object to: queue headers: aDictionary
 	| message c |
 	senderSemaphore critical: [  
 		c := self senderClient.

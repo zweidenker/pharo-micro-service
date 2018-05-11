@@ -1,3 +1,3 @@
 as yet unclassified
 sendSyncRequest: aRequest
-	^ sender sendSynchronousRequest: aRequest to: queueName
+	^ sender sendSyncRequest: aRequest to: queueName

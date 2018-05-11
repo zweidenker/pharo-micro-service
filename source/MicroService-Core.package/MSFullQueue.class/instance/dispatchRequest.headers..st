@@ -5,5 +5,5 @@ dispatchRequest: aRequest headers: dict
 	d at: #requestClass put: aRequest class name.
 	^ self 
 		sendRequest: aRequest
-		toQueue: self receiverQueue
+		to: self receiverQueue
 		headers: d

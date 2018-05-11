@@ -7,5 +7,5 @@ sendAsyncRequest: aRequest to: queue
 	future := MSFuture new.
 	MSUtils logInfo: 'adding future with id ', correlationId asString.
 	messageHandler futureAt: correlationId put: future. 
-	self sendRequest: aRequest toQueue: queue headers: {'correlation-id' -> correlationId } asDictionary.
+	self sendRequest: aRequest to: queue headers: {'correlation-id' -> correlationId } asDictionary.
 	^ future 

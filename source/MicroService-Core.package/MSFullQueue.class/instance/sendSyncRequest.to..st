@@ -1,5 +1,5 @@
 as yet unclassified
-sendSynchronousRequest: aRequest to: queue
+sendSyncRequest: aRequest to: queue
 	| correlationId promise |
 	MMUtils logDebug: 'sending sync queue request ', aRequest asString.
 	correlationId := self createCorrelationId.
@@ -9,5 +9,5 @@ sendSynchronousRequest: aRequest to: queue
 	promise := MSPromise new.
 	messageHandler futureAt: correlationId put: promise. 
 	promise asyncDo: [ 
-		self sendRequest: aRequest toQueue: queue headers: { 'correlation-id' -> correlationId } asDictionary ].
+		self sendRequest: aRequest to: queue headers: { 'correlation-id' -> correlationId } asDictionary ].
 	^ promise value
