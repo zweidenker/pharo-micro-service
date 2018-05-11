@@ -5,7 +5,6 @@ resolveFutureWithId: id withValue: response
 			ifFalse: [ (futures at: id) resolve: response ] ]
 		on: Error 
 		do: [ :err |
-				err pass.
 			MSUtils logError: err messageText.
 			futures at: id ifPresent: [:f | f resolveError: err ].
 			Smalltalk

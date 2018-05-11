@@ -10,7 +10,6 @@ startReceiver
 			self runLoop ]
 		on: Error 
 		do: [ :error |
-			error pass.
 			MSUtils logError: error.
 			Smalltalk 
 				at: #ExceptionReporter
