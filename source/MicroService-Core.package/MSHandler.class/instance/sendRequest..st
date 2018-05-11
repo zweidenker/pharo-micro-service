@@ -1,3 +1,3 @@
 sending
 sendRequest: aRequest 
-	^ self sendRequest: aRequest sync: true
+	^ self sendSyncRequest: aRequest

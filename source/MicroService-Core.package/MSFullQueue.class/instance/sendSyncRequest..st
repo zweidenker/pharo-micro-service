@@ -1,5 +1,5 @@
 as yet unclassified
-sendSynchronousRequest: aRequest
+sendSyncRequest: aRequest
 	| correlationId promise |
 	MMUtils logDebug: 'sending sync queue request ', aRequest asString.
 	correlationId := self createCorrelationId.
