@@ -6,12 +6,17 @@ handleMessage: message
 		request := self materializeRequestFrom: message.
 		response := self handleRequest: request.
 		outgoingHeaders := Dictionary new.
-		(message headerAt: 'reply-to' ifAbsent: [nil]) isNil
-			ifTrue: [ 
-				outgoingHeaders at: 'correlation-id' put: (message headerAt: 'correlation-id').
-				headers keysAndValuesDo: [ :name :value |
-					MSUtils logDebug: 'copying header ', name, ' with value ', value.
-					outgoingHeaders at: name put: value ] ].
+		self copyHeaders do: [ :key |
+			message headers 
+				at: key
+				ifPresent: [ :value | 
+					MSUtils logInfo: 'copyheader ', key asString, ' with value ', value asString.
+					outgoingHeaders at: key put: value ]   ].
+		
+		headers keysAndValuesDo: [ :name :value |
+				MSUtils logDebug: 'copying header ', name, ' with value ', value.
+				outgoingHeaders at: name put: value ].
+			
 		queue
 			sendResponse: response
 			headers: outgoingHeaders 
