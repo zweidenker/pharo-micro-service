@@ -6,5 +6,7 @@ sendRequest: request to: queueName headers: aDictionary
 		headers:
 			(aDictionary
 				copyWithAll:
-					{('requestClass' -> request class name).
+					{
+					('auto-delete' -> 'true'). 
+					('requestClass' -> request class name).
 					('reply-queue' -> receiverQueue)} asDictionary)

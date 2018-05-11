@@ -6,6 +6,7 @@ runLoop
 	MSUtils logInfo: 'receiver client subscribe to: ', receiverQueue asString.
 	subscription := (self receiverClient newSubscriptionTo: receiverQueue).
 	frame := subscription subscribeFrame.
+	frame headerAt: 'auto-delete' put: 'true'.
 	self receiverClient write: frame.
 	
 	[ self receiverClient runWith: [ :message | self handleMessage: message ] ]
