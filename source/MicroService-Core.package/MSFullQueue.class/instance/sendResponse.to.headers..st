@@ -1,8 +1,8 @@
 accessing
 sendResponse: response to: queue headers: aDictionary
-		| c message |
-	c := self receiverClient.
-	message := c newSendFrameTo: queue.
+	| client message |
+	client := self receiverClient.
+	message := client newSendFrameTo: queue.
 	message headerAt: 'responseClass' put: response class name.
 	aDictionary keysAndValuesDo: [ :key :value |
 	message headerAt: key put: value ].
@@ -11,4 +11,4 @@ sendResponse: response to: queue headers: aDictionary
 		body: (self serialize: response).
 		
 	MSUtils logDebug: 'sending response frame: ', message asString.
-	c write: message
+	client write: message
