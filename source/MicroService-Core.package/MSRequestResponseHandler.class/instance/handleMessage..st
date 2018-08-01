@@ -21,4 +21,10 @@ handleMessage: message
 		sendResponse: response
 		to: (self responseQueueFor: message)
 		headers: outgoingHeaders ] timeToRun.
+
+	queue announcer announce: (MSRequestHandled new
+		request: request;
+		response: response;
+		time: time).
+		
 	MSUtils logDebug: 'time = ' , time asString

@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "MSAnnouncement",
+	"category" : "MicroService-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"request",
+		"response",
+		"time"
+	],
+	"name" : "MSRequestHandled",
+	"type" : "normal"
+}

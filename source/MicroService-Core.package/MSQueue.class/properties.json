@@ -11,7 +11,8 @@
 		"hostname",
 		"username",
 		"password",
-		"virtualHost"
+		"virtualHost",
+		"announcer"
 	],
 	"name" : "MSQueue",
 	"type" : "normal"
