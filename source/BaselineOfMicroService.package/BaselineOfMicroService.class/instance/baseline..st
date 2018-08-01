@@ -4,7 +4,7 @@ baseline: spec
         
 	spec for: #common do: [
    		spec 
-			package: 'MicroService-Core' with: [ spec requires: #( 'Stamp' 'Beacon') ];
+			package: 'MicroService-Core' with: [ spec requires: #( 'Stamp' 'Beacon' 'Metrics') ];
 			
 			baseline: 'Beacon' with: [ 
 				spec 
@@ -19,8 +19,11 @@ baseline: spec
 				spec
 					className: #ConfigurationOfStamp;
 					versionString: '4';
-					repository: 'http://smalltalkhub.com/mc/SvenVanCaekenberghe/Stamp/main' ].
+					repository: 'http://smalltalkhub.com/mc/SvenVanCaekenberghe/Stamp/main' ];
 							
+			baseline: 'Metrics' with: [ 
+				 spec 
+					repository: 'github://zweidenker/pharo-metrics/source'].
 			"baseline: 'RestStack' with: [ 
 				 spec 
 					loads: 'exception';
