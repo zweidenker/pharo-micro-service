@@ -15,11 +15,9 @@ baseline: spec
 				 spec 
 					repository: 'github://noha/pharo-toolbox/source'];
 				
-			project: 'Stamp' with: [
+			baseline: 'Stamp' with: [
 				spec
-					className: #ConfigurationOfStamp;
-					versionString: '4';
-					repository: 'http://smalltalkhub.com/mc/SvenVanCaekenberghe/Stamp/main' ];
+					repository: 'github://zweidenker/Stamp/source' ];
 							
 			baseline: 'Metrics' with: [ 
 				 spec 
