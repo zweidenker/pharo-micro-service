@@ -17,7 +17,7 @@ baseline: spec
 				
 			baseline: 'Stamp' with: [
 				spec
-					repository: 'github://zweidenker/Stamp/source' ];
+					repository: 'github://zweidenker/stamp/repository' ];
 							
 			baseline: 'Metrics' with: [ 
 				 spec 
