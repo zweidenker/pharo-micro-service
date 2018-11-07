@@ -4,7 +4,7 @@ baseline: spec
         
 	spec for: #common do: [
    		spec 
-			package: 'MicroService-Core' with: [ spec requires: #( 'Stamp' 'Beacon' 'Metrics') ];
+			package: 'MicroService-Core' with: [ spec requires: #( 'Stamp' 'Beacon' 'Metrics' 'NeoJSON') ];
 			
 			baseline: 'Beacon' with: [ 
 				spec 
@@ -21,7 +21,11 @@ baseline: spec
 							
 			baseline: 'Metrics' with: [ 
 				 spec 
-					repository: 'github://zweidenker/pharo-metrics/source'].
+					repository: 'github://zweidenker/pharo-metrics/source'];
+				
+			baseline: 'NeoJSON' with: [ 
+				spec 
+					repository: 'github://svenvc/NeoJSON:master/repository' ].
 			"baseline: 'RestStack' with: [ 
 				 spec 
 					loads: 'exception';
