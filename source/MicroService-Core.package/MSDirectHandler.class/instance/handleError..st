@@ -3,7 +3,6 @@ handleError: error
 	^ (error isKindOf: MSError)
 		ifTrue: [ error ]
 		ifFalse: [  
-			self debugMode ifTrue: [ error pass ].
 			MSUtils logError: error.
 			Smalltalk  
 				at: #ExceptionReporter

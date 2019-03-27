@@ -1,3 +1,3 @@
 accessing
 errorClassName
-	^ errorClassName 
+	^ errorClassName ifNil: [ self className ]

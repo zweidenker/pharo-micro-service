@@ -1,6 +1,6 @@
 printing
 printOn: aStream
 	aStream 
-		nextPutAll: errorClassName asString;
+		nextPutAll: self errorClassName asString;
 		nextPutAll: ' >> ';
 		nextPutAll: messageText asString
