@@ -1,15 +1,13 @@
 {
 	"commentStamp" : "",
-	"super" : "MSHandler",
+	"super" : "MSError",
 	"category" : "MicroService-Core",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"service",
-		"delegate",
-		"debugMode"
+		"errorClassName"
 	],
-	"name" : "MSDirectHandler",
+	"name" : "MSUnhandledError",
 	"type" : "normal"
 }
