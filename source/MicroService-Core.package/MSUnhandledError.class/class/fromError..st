@@ -1,5 +1,5 @@
-instance creation
+accessing
 fromError: error
 	^ self new 
-		errorClassName: self name;
+		errorClassName: error class name;
 		messageText: error description
