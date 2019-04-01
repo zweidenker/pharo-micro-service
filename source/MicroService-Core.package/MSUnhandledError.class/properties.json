@@ -1,14 +1,13 @@
 {
 	"commentStamp" : "",
-	"super" : "MSFuture",
+	"super" : "MSError",
 	"category" : "MicroService-Core",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"future",
-		"process"
+		"errorClassName"
 	],
-	"name" : "MSLocalFuture",
+	"name" : "MSUnhandledError",
 	"type" : "normal"
 }

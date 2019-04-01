@@ -1,4 +1,4 @@
-instance creation
+accessing
 fromError: error
 	^ self new 
 		errorClassName: error class name;
