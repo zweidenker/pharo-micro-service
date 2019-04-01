@@ -1,5 +1,0 @@
-instance creation
-fromError: error
-	^ self new 
-		errorClassName: self name;
-		messageText: error description
