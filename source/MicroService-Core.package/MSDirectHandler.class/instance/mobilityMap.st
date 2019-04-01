@@ -1,3 +1,0 @@
-accessinf
-mobilityMap
-	^ service mobilityMap
