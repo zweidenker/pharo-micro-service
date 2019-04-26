@@ -1,3 +1,5 @@
 public
 dispatchRequest: request
-	^ request directCall: delegate
+	| convertedRequest |
+	convertedRequest := self convertObject: request.
+	^ convertedRequest directCall: delegate

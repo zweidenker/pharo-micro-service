@@ -1,3 +1,3 @@
 public
 handleRequest: aRequest
-	^ self convertResponse: (super handleRequest: aRequest) 
+	^ self convertObject: (super handleRequest: aRequest) 
