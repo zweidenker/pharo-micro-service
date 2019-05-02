@@ -1,4 +1,4 @@
 accessing
 sendAsyncRequest: aRequest
-	 ^ self workerPool future: [ self handleRequest: aRequest. ]
+	 ^  [ self handleRequest: aRequest. ] future
 	
