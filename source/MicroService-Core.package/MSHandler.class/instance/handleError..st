@@ -4,4 +4,4 @@ handleError: error
 		ifTrue: [ error ]
 		ifFalse: [  
 			self logError: error.
-			MSUnhandledError fromError: error ]
+			(MSUnhandledError fromError: error) signal ]

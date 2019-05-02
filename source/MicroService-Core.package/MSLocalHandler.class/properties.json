@@ -1,11 +1,13 @@
 {
 	"commentStamp" : "",
-	"super" : "MSLocalHandler",
+	"super" : "MSHandler",
 	"category" : "MicroService-Core",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [ ],
-	"name" : "MSDirectHandler",
+	"instvars" : [
+		"delegate"
+	],
+	"name" : "MSLocalHandler",
 	"type" : "normal"
 }
