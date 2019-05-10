@@ -1,7 +1,15 @@
 responding
 resolveFutureWithId: id withValue: response 
 	[ [ response isError 
-			ifTrue: [ (futures at: id) deployFailure: response ] 
+			ifTrue: [ 
+				"Here we try to set back a signal context to the materialized exception.
+				This will allow TaskIt to #freeze this materialized exception (if no signal context, an error is raised, see MAP-1247). 
+				Note that I am not sure about consequences of such exception manipulation, I am playing around.
+				
+				I am not even sure this is the way to fix the issue: 
+				maybe #deployFailures: is only to be used internally by TaskIt, 
+				and we should at the end only define 'block future' and let TaskIt #deployFailure when an exception is raised ... "
+				(futures at: id) deployFailure: (response searchFrom: thisContext; yourself) ] 
 			ifFalse: [ (futures at: id) deploySuccess: response ] ]
 		on: Error 
 		do: [ :err |
