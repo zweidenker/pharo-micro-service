@@ -6,9 +6,9 @@ resolveFutureWithId: id withValue: response
 				This will allow TaskIt to #freeze this materialized exception (if no signal context, an error is raised, see MAP-1247). 
 				Note that I am not sure about consequences of such exception manipulation, I am playing around.
 				
-				I am not even sure this is the way to fix the issue: 
+				I am not sure neither that pleasing TaskIt is the necessarly the way to go: 
 				maybe #deployFailures: is only to be used internally by TaskIt, 
-				and we should at the end only define 'block future' and let TaskIt #deployFailure when an exception is raised ... "
+				and we should at the end only define 'block future' and let TaskIt #deployFailure when an exception is raised ...  "
 				(futures at: id) deployFailure: (response searchFrom: thisContext; yourself) ] 
 			ifFalse: [ (futures at: id) deploySuccess: response ] ]
 		on: Error 
