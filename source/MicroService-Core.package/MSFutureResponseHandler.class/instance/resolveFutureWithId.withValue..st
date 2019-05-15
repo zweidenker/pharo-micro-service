@@ -13,5 +13,5 @@ resolveFutureWithId: id withValue: response
 			MSUtils logError: err messageText.
 			futures at: id ifPresent: [ :f | f deployFailure: err ].
 			Smalltalk
-				at: #ExceptionReporter
+				at: #SnapDump
 				ifPresent: [ :cls | cls handleException: err ] ] ] fork
