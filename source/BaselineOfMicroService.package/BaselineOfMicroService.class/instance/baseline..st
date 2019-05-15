@@ -10,11 +10,7 @@ baseline: spec
 				spec 
 					repository: 'github://pharo-project/pharo-beacon:v1.4/repository';
 					loads: #( 'Core' 'Beacon-Syslog') ];
-								
-			baseline: 'ExceptionReport' with: [ 
-				 spec 
-					repository: 'github://noha/pharo-toolbox/source'];
-				
+									
 			baseline: 'Stamp' with: [
 				spec
 					repository: 'github://zweidenker/stamp/repository' ];
