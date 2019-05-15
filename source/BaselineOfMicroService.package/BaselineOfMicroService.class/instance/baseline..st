@@ -10,10 +10,6 @@ baseline: spec
 				spec 
 					repository: 'github://pharo-project/pharo-beacon:v1.4/repository';
 					loads: #( 'Core' 'Beacon-Syslog') ];
-								
-			baseline: 'ExceptionReport' with: [ 
-				 spec 
-					repository: 'github://noha/pharo-toolbox/source'];
 				
 			baseline: 'Stamp' with: [
 				spec
@@ -26,14 +22,6 @@ baseline: spec
 			baseline: 'NeoJSON' with: [ 
 				spec 
 					repository: 'github://svenvc/NeoJSON:master/repository' ].
-			"baseline: 'RestStack' with: [ 
-				 spec 
-					loads: 'exception';
-					repository: 'github://zweidenker/pharo-rest/source'];"
-				
-			"baseline: 'Metrics' with: [ 
-				 spec 
-					repository: 'github://zweidenker/pharo-metrics/source'];"
 								
 		spec
 			group: 'Core' with: #('MicroService-Core') ].
