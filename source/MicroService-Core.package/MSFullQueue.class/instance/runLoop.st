@@ -14,7 +14,7 @@ runLoop
 		do: [:err | 
 			MSUtils logError: err messageText.
 			Smalltalk 
-				at: #ExceptionReporter
+				at: #SnapDump
 				ifPresent: [ :cls | cls handleException: err ]].
 		self resetReceiver. 
 		MSUtils logDebug: 'restarting runLoop' ] repeat	
