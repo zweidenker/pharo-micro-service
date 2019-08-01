@@ -13,4 +13,7 @@ startReceiver
 			MSUtils logError: error.
 			Smalltalk 
 				at: #SnapDump
-				ifPresent: [ :reporter | reporter handleException: error ] ] ] forkNamed: 'queue consumer for: ', self receiverQueue asString.
+				ifPresent: [ :reporter | reporter handleException: error ].
+			"we want to let the exception pass so that users can be notified that the receiving loop stopped"
+			error pass.	
+			 ] ] forkNamed: 'queue consumer for: ', self receiverQueue asString.
