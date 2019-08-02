@@ -21,6 +21,8 @@ runLoop
 			MSUtils logError: err messageText.
 			Smalltalk
 				at: #SnapDump
-				ifPresent: [ :cls | cls handleException: err ] ].
+				ifPresent: [ :cls | 
+				"fork so that it does not block the auto-restart of the loop."	
+				[cls handleException: err] fork ] ].
 	self resetReceiver.
 	MSUtils logDebug: 'restarting runLoop' ] repeat
