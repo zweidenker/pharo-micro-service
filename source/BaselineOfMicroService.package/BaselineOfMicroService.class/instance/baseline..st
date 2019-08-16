@@ -17,7 +17,7 @@ baseline: spec
 							
 			baseline: 'Metrics' with: [ 
 				 spec 
-					repository: 'github://zweidenker/pharo-metrics:0.1/source'];
+					repository: 'github://zweidenker/pharo-metrics:1.0/source'];
 				
 			baseline: 'NeoJSON' with: [ 
 				spec 

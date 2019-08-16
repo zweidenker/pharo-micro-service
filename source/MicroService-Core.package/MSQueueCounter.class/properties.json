@@ -6,8 +6,9 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"requestMetric"
+		"requestMetric",
+		"requests"
 	],
-	"name" : "MSQMetricSet",
+	"name" : "MSQueueCounter",
 	"type" : "normal"
 }
