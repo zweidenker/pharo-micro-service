@@ -7,9 +7,7 @@
 	],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [
-		"queue"
-	],
+	"instvars" : [ ],
 	"name" : "MSMetricsHandler",
 	"type" : "normal"
 }
