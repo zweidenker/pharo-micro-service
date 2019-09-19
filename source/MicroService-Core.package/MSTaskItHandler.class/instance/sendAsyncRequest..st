@@ -1,4 +1,4 @@
 accessing
 sendAsyncRequest: aRequest
-	 ^  [ self handleRequest: aRequest. ] future
+	 ^  [ self handleRequest: aRequest ] future
 	
