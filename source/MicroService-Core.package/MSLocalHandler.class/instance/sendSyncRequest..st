@@ -1,3 +1,7 @@
 accessing
 sendSyncRequest: aRequest
-	^ self handleRequest: aRequest
+	| response |
+	response := self handleRequest: aRequest.
+	response isError ifTrue: [ 
+		response signal ].
+	^ response

@@ -1,9 +1,7 @@
 accessing
 handleError: error
 	^ (error isKindOf: MSError)
-		ifTrue: [
-			self logError: error. 
-			error signal ]
+		ifTrue: [ error ]
 		ifFalse: [  
 			self logError: error.
 			(MSUnhandledError fromError: error) signal ]
