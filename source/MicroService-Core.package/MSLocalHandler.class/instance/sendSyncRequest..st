@@ -1,7 +1,4 @@
 accessing
 sendSyncRequest: aRequest
-	| response |
-	response := self handleRequest: aRequest.
-	response isError ifTrue: [ 
-		response signal ].
-	^ response
+	MMUtils logDebug: 'sending sync request ' , aRequest asString .
+	^ self handleRequestWithErrors: aRequest
