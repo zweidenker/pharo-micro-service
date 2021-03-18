@@ -4,13 +4,14 @@ startHeartbeatTimer
 	heartbeatProcess ifNotNil: [ 
 		MSUtils logInfo: 'heartbeat timer already started...'.
 		heartbeatProcess terminate  ].
-	heartbeatProcess := [ | time |
-		self senderClient isConnected ifFalse: [ self senderClient open ].
-		time := self senderClient heartbeat.
+	heartbeatProcess := [
+		self senderClient isConnected ifFalse: [ 
+			MSUtils logInfo: 'opening sending connection to queue'.
+			self senderClient open ].
 		[  
-			time milliSeconds wait.
+			5 seconds wait.
 			senderSemaphore  critical: [ 
-				 self senderClient writeHeartbeatIfNeeded. 
-				MSUtils logInfo: 'heartbeat sent'.
-			]
-		 ] repeat ] forkNamed: 'queue dispatcher heartbeat'
+				MSUtils logInfo: 'trigger heartbeat send'.
+				self senderClient writeHeartbeatIfNeeded ]
+		 ] repeat 
+	] forkNamed: 'queue dispatcher heartbeat'
